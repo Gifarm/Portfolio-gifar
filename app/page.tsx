@@ -262,10 +262,10 @@ const App: React.FC = () => {
                   src="foto.jpeg"
                   alt="Professional Avatar"
                   className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
-                  onError={(e) => {
-                    e.currentTarget.src =
-                      "https://via.placeholder.com/600x600/020617/FFFFFF?text=Photo+PNG";
-                  }}
+                  // onError={(e) => {
+                  //   e.currentTarget.src =
+                  //     "https://via.placeholder.com/600x600/020617/FFFFFF?text=Photo+PNG";
+                  // }}
                 />
 
                 <div className="absolute bottom-10 left-10 right-10 p-6 bg-black/60 backdrop-blur-xl border border-white/10 rounded-2xl">
@@ -416,10 +416,10 @@ const App: React.FC = () => {
                     src={item.img}
                     alt={item.title}
                     className="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
-                    onError={(e) => {
-                      e.currentTarget.src =
-                        "https://via.placeholder.com/800x500/020617/FFFFFF?text=Project+PNG";
-                    }}
+                    // onError={(e) => {
+                    //   e.currentTarget.src =
+                    //     "https://via.placeholder.com/800x500/020617/FFFFFF?text=Project+PNG";
+                    // }}
                   />
 
                   <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-sm">
