@@ -25,38 +25,45 @@ import { motion, useScroll, useTransform } from "framer-motion";
 const projects = [
   {
     id: 1,
-    title: "Elite SaaS Dashboard",
-    category: "Concept / UI UX",
-    year: "2024",
-    img: "https://images.unsplash.com/photo-1551288049-bbda4833effb?q=80&w=1000&auto=format&fit=crop",
+    title: "Website Piradio",
+    category: "NextJS with Figma",
+    year: "2026",
+    img: "/piradio.png",
   },
   {
     id: 2,
-    title: "Crypto Wallet App",
-    category: "Mobile Development",
-    year: "2023",
-    img: "https://images.unsplash.com/photo-1621761126064-fdd15243160e?q=80&w=1000&auto=format&fit=crop",
+    title: "Ecommerce QRCode Based",
+    category: "Mobile First With Laravel",
+    year: "2025",
+    img: "/prjct-toko.png",
   },
   {
     id: 3,
-    title: "AI Marketing Tools",
-    category: "Web Application",
-    year: "2024",
-    img: "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1000&auto=format&fit=crop",
+    title: "DOSPEM Web",
+    category: "Laravel",
+    year: "2026",
+    img: "/lpkia.png",
   },
   {
     id: 4,
-    title: "Luxury Brand E-commerce",
-    category: "Visual Design",
-    year: "2023",
-    img: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1000&auto=format&fit=crop",
+    title: "Forum OSIS Banjar Idaman",
+    category: "NextJS with TypeScript",
+    year: "2026",
+    img: "/prjct6.png",
   },
   {
     id: 5,
-    title: "Global Logistics Portal",
-    category: "System Architecture",
-    year: "2024",
-    img: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1000&auto=format&fit=crop",
+    title: "Ecommerce Mobile First",
+    category: "Laravel",
+    year: "2025",
+    img: "/prjct.png",
+  },
+  {
+    id: 6,
+    title: "Saas Mini",
+    category: "Next With Laravel API",
+    year: "2025",
+    img: "/saas.png",
   },
 ];
 
@@ -228,7 +235,7 @@ const App: React.FC = () => {
                 onClick={() => scrollTo("portfolio")}
                 className="group px-10 py-5 bg-white text-black rounded-full font-black text-sm uppercase tracking-widest flex items-center gap-2 hover:bg-slate-200 transition-all shadow-[0_0_30px_rgba(255,255,255,0.1)] hover:-translate-y-1"
               >
-                Selected Works
+                Project
                 <ChevronRight
                   size={18}
                   className="group-hover:translate-x-1 transition-transform"
@@ -299,15 +306,13 @@ const App: React.FC = () => {
               </p>
               <div className="grid grid-cols-2 gap-10 pt-4">
                 <div className="space-y-1">
-                  <h4 className="text-3xl font-black text-white italic">40+</h4>
+                  <h4 className="text-3xl font-black text-white italic">10+</h4>
                   <p className="text-xs text-slate-500 uppercase tracking-widest font-bold">
-                    Global Projects
+                    Projects
                   </p>
                 </div>
                 <div className="space-y-1">
-                  <h4 className="text-3xl font-black text-white italic">
-                    100%
-                  </h4>
+                  <h4 className="text-3xl font-black text-white italic">90%</h4>
                   <p className="text-xs text-slate-500 uppercase tracking-widest font-bold">
                     Success Rate
                   </p>
@@ -381,7 +386,7 @@ const App: React.FC = () => {
                 Showcase
               </h2>
               <h3 className="text-4xl md:text-5xl font-bold text-white">
-                Selected Works
+                Project
               </h3>
             </div>
             <div className="flex gap-4">
@@ -411,15 +416,10 @@ const App: React.FC = () => {
                 className="min-w-full md:min-w-[500px] snap-center group relative"
               >
                 <div className="relative overflow-hidden rounded-[3rem] bg-slate-900 border border-white/10 aspect-[16/10] mb-8">
-                  {/* PNG PROJECT IMAGE */}
                   <img
                     src={item.img}
                     alt={item.title}
                     className="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
-                    // onError={(e) => {
-                    //   e.currentTarget.src =
-                    //     "https://via.placeholder.com/800x500/020617/FFFFFF?text=Project+PNG";
-                    // }}
                   />
 
                   <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-sm">
@@ -462,8 +462,8 @@ const App: React.FC = () => {
 
             <div className="space-y-4">
               <h3 className="text-5xl md:text-7xl font-black text-white relative z-10 tracking-tighter leading-none">
-                READY TO <br />{" "}
-                <span className="text-indigo-400 italic">ELEVATE?</span>
+                ORDER YOUR <br />{" "}
+                <span className="text-indigo-400 italic">PROJECT?</span>
               </h3>
               <p className="text-slate-400 text-lg relative z-10 max-w-md mx-auto font-light">
                 Jangan ragu untuk berdiskusi tentang proyek besar Anda
@@ -497,22 +497,22 @@ const App: React.FC = () => {
       <footer className="py-20 px-6 border-t border-white/5">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-white rounded-2xl flex items-center justify-center text-black font-black italic text-xl">
+            {/* <div className="w-10 h-10 bg-white rounded-2xl flex items-center justify-center text-black font-black italic text-xl">
               P
-            </div>
+            </div> */}
             <span className="font-black text-white tracking-widest text-lg uppercase italic">
               PORTFOLIO.
             </span>
           </div>
           <p className="text-slate-600 text-sm font-medium tracking-wide">
-            © 2024 DESIGNED BY ELITE DEV. ALL RIGHTS RESERVED.
+            © 2025 DESIGNED BY M Gifar. ALL RIGHTS RESERVED.
           </p>
           <div className="flex gap-8 text-[10px] font-black uppercase tracking-widest text-slate-500">
             <a href="#" className="hover:text-indigo-400 transition-colors">
-              Dribbble
+              Tiktok
             </a>
             <a href="#" className="hover:text-indigo-400 transition-colors">
-              Behance
+              Linkedin
             </a>
             <a href="#" className="hover:text-indigo-400 transition-colors">
               Instagram
