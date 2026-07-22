@@ -1,60 +1,77 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import Link from "next/link";
 import {
   User,
   Code2,
   Briefcase,
+  // Github,
   Mail,
   Home,
-  ArrowUpRight,
+  ExternalLink,
   ChevronRight,
   Layers,
+  Cpu,
   Globe,
   Palette,
+  // Twitter,
+  // Linkedin,
   ArrowRight,
   ArrowLeft,
-  MapPin,
-  Clock,
-  Copy,
-  Check,
-  ArrowUp,
 } from "lucide-react";
-import { motion } from "framer-motion";
-import { projects } from "@/lib/projects";
-import { TechIcon, SOCIAL_ICONS } from "@/components/tech-icon";
+import { motion, useScroll, useTransform } from "framer-motion";
 
-// Tech stack shown in the Skills marquee — duplicated once in render for a seamless loop
-const TECH_STACK = [
-  "nextjs",
-  "typescript",
-  "tailwind",
-  "laravel",
-  "php",
-  "mysql",
-  "react",
-  "figma",
-  "git",
-  "javascript",
-];
-
-const socialLinks = [
+// Mock Data untuk Slider
+const projects = [
   {
-    key: "instagram" as const,
-    href: "https://instagram.com",
-    label: "Instagram",
+    id: 1,
+    title: "Website Piradio",
+    category: "NextJS with Figma",
+    year: "2026",
+    img: "/piradio.png",
   },
-  { key: "tiktok" as const, href: "https://tiktok.com", label: "Tiktok" },
-  { key: "linkedin" as const, href: "https://linkedin.com", label: "Linkedin" },
-  { key: "github" as const, href: "https://github.com", label: "Github" },
+  {
+    id: 2,
+    title: "Ecommerce QRCode Based",
+    category: "Mobile First With Laravel",
+    year: "2025",
+    img: "/prjct-toko.png",
+  },
+  {
+    id: 3,
+    title: "DOSPEM Web",
+    category: "Laravel",
+    year: "2026",
+    img: "/lpkia.png",
+  },
+  {
+    id: 4,
+    title: "Forum OSIS Banjar Idaman",
+    category: "NextJS with TypeScript",
+    year: "2026",
+    img: "/prjct6.png",
+  },
+  {
+    id: 5,
+    title: "Ecommerce Mobile First",
+    category: "Laravel",
+    year: "2025",
+    img: "/prjct.png",
+  },
+  {
+    id: 6,
+    title: "Saas Mini",
+    category: "Next With Laravel API",
+    year: "2025",
+    img: "/saas.png",
+  },
 ];
 
 const App: React.FC = () => {
   const [activeTab, setActiveTab] = useState<string>("home");
-  const [copied, setCopied] = useState(false);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
+  // Monitor scroll untuk status active navbar
   useEffect(() => {
     const handleScroll = () => {
       const sections = ["home", "about", "skills", "portfolio", "contact"];
@@ -105,22 +122,17 @@ const App: React.FC = () => {
     }
   };
 
-  const copyEmail = async () => {
-    await navigator.clipboard.writeText("fargifar2007@gmail.com");
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
-
   return (
     <div className="min-h-screen bg-[#020617] text-slate-200 font-sans selection:bg-indigo-500/30 selection:text-indigo-200 overflow-x-hidden">
-      {/* Background Ornaments */}
+      {/* Background Ornaments - Deep Blur & Soft Gradients */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
         <div className="absolute -top-[10%] -left-[10%] w-[50%] h-[50%] rounded-full bg-indigo-900/20 blur-[140px]" />
         <div className="absolute top-[20%] -right-[5%] w-[40%] h-[40%] rounded-full bg-purple-900/10 blur-[140px]" />
         <div className="absolute bottom-[-10%] left-[10%] w-[45%] h-[45%] rounded-full bg-blue-900/15 blur-[140px]" />
+        <div className="absolute inset-0 bg-[url('https://transparenttextures.com/patterns/carbon-fibre.png')] opacity-[0.03] invert" />
       </div>
 
-      {/* Floating Navbar */}
+      {/* Modern Floating Navbar Dark Version */}
       <nav className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 px-4 w-full max-w-fit">
         <motion.div
           initial={{ y: 100, opacity: 0 }}
@@ -156,6 +168,15 @@ const App: React.FC = () => {
               </span>
             </button>
           ))}
+          <div className="w-[1px] h-6 bg-white/10 mx-2 hidden md:block" />
+          <a
+            href="https://github.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-3 text-slate-500 hover:text-white transition-colors hidden md:block"
+          >
+            {/* <Github size={20} /> */}
+          </a>
         </motion.div>
       </nav>
 
@@ -231,7 +252,7 @@ const App: React.FC = () => {
         </div>
       </section>
 
-      {/* About Section */}
+      {/* About Section - PNG Photo Integration */}
       <section id="about" className="py-32 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-20 items-center">
@@ -243,11 +264,17 @@ const App: React.FC = () => {
             >
               <div className="absolute inset-0 bg-gradient-to-tr from-indigo-500 to-purple-500 rounded-[3rem] blur-[60px] opacity-20" />
               <div className="relative h-full w-full rounded-[3rem] overflow-hidden border border-white/10 bg-slate-900 group">
+                {/* PNG PHOTO PLACEHOLDER - Abang ganti src nya dengan foto PNG Abang */}
                 <img
-                  src="/foto.jpeg"
+                  src="foto.jpeg"
                   alt="Professional Avatar"
                   className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
+                  // onError={(e) => {
+                  //   e.currentTarget.src =
+                  //     "https://via.placeholder.com/600x600/020617/FFFFFF?text=Photo+PNG";
+                  // }}
                 />
+
                 <div className="absolute bottom-10 left-10 right-10 p-6 bg-black/60 backdrop-blur-xl border border-white/10 rounded-2xl">
                   <p className="text-white font-bold">Based in Banjar, ID</p>
                   <p className="text-slate-400 text-sm italic">
@@ -275,7 +302,7 @@ const App: React.FC = () => {
                 Saya percaya bahwa desain gelap bukan hanya soal estetika, tapi
                 tentang kenyamanan dan fokus. Dengan mengombinasikan teknis
                 coding yang kuat dan kepekaan visual, saya menciptakan produk
-                digital yang tidak hanya berjalan, tapi juga bercerita.
+                digital yang tidak hanya berjalan, tapi juga bercerita
               </p>
               <div className="grid grid-cols-2 gap-10 pt-4">
                 <div className="space-y-1">
@@ -296,16 +323,19 @@ const App: React.FC = () => {
         </div>
       </section>
 
-      {/* Skills Section */}
+      {/* Expertise Section */}
       <section id="skills" className="py-32 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-24 space-y-4">
+            <h2 className="text-indigo-400 font-black text-sm tracking-[0.3em] uppercase">
+              Abilities
+            </h2>
             <h3 className="text-4xl md:text-5xl font-bold text-white">
-              Skills
+              Technical Arsenal
             </h3>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
                 title: "UI/UX Design",
@@ -344,105 +374,51 @@ const App: React.FC = () => {
               </motion.div>
             ))}
           </div>
-
-          {/* Tech stack marquee — pure CSS animation, no JS overhead */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="relative rounded-[2.5rem] border border-white/10 bg-white/[0.03] backdrop-blur-2xl py-10 overflow-hidden"
-          >
-            <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-[#020617] to-transparent z-10 pointer-events-none" />
-            <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-[#020617] to-transparent z-10 pointer-events-none" />
-            <div className="flex w-max marquee-track">
-              {[...TECH_STACK, ...TECH_STACK].map((key, i) => (
-                <div
-                  key={`${key}-${i}`}
-                  className="flex flex-col items-center gap-3 px-10 shrink-0"
-                >
-                  <TechIcon name={key} size={36} />
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-slate-500">
-                    {key}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </motion.div>
         </div>
       </section>
 
-      {/* Portfolio Section */}
+      {/* Portfolio Section - Horizontal Slider Integration */}
       <section id="portfolio" className="py-32 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
             <div className="space-y-4">
-              {/* <h2 className="text-indigo-400 font-black text-sm tracking-[0.3em] uppercase">
+              <h2 className="text-indigo-400 font-black text-sm tracking-[0.3em] uppercase">
                 Showcase
-              </h2> */}
+              </h2>
               <h3 className="text-4xl md:text-5xl font-bold text-white">
                 Project
               </h3>
-            </div>
-            <div className="hidden md:flex gap-3">
-              <button
-                onClick={() => scrollSlider("left")}
-                aria-label="Scroll left"
-                className="w-12 h-12 rounded-full border border-white/10 bg-white/5 flex items-center justify-center text-slate-300 hover:text-white hover:border-white/30 transition-all"
-              >
-                <ArrowLeft size={18} />
-              </button>
-              <button
-                onClick={() => scrollSlider("right")}
-                aria-label="Scroll right"
-                className="w-12 h-12 rounded-full border border-white/10 bg-white/5 flex items-center justify-center text-slate-300 hover:text-white hover:border-white/30 transition-all"
-              >
-                <ArrowRight size={18} />
-              </button>
             </div>
           </div>
 
           <div
             ref={scrollContainerRef}
             className="flex gap-8 overflow-x-auto pb-10 scrollbar-hide snap-x snap-mandatory"
+            style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
           >
             {projects.map((item) => (
               <motion.div
                 key={item.id}
                 className="min-w-full md:min-w-[500px] snap-center group relative"
               >
-                <Link href={`/project/${item.slug}`} className="block">
-                  <div className="relative overflow-hidden rounded-[3rem] bg-slate-900 border border-white/10 aspect-[16/10] mb-8">
-                    <img
-                      src={item.img}
-                      alt={item.title}
-                      className="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
-                    />
-                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-sm">
-                      <div className="px-6 py-3 rounded-full bg-white text-black flex items-center gap-2 scale-90 group-hover:scale-100 transition-transform duration-500 shadow-[0_0_40px_rgba(255,255,255,0.3)] font-black text-xs uppercase tracking-widest">
-                        Lihat Detail
-                        <ArrowUpRight size={16} />
-                      </div>
-                    </div>
-                    {/* Tech badges overlay */}
-                    <div className="absolute top-6 left-6 flex gap-2">
-                      {item.stack.slice(0, 4).map((tech) => (
-                        <div
-                          key={tech}
-                          className="w-10 h-10 rounded-xl bg-black/60 backdrop-blur-md border border-white/10 flex items-center justify-center"
-                        >
-                          <TechIcon name={tech} size={18} />
-                        </div>
-                      ))}
+                <div className="relative overflow-hidden rounded-[3rem] bg-slate-900 border border-white/10 aspect-[16/10] mb-8">
+                  <img
+                    src={item.img}
+                    alt={item.title}
+                    className="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
+                  />
+
+                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-sm">
+                    <div className="w-16 h-16 rounded-full bg-white text-black flex items-center justify-center scale-0 group-hover:scale-100 transition-transform duration-500 shadow-[0_0_40px_rgba(255,255,255,0.3)] cursor-pointer">
+                      <ExternalLink size={24} />
                     </div>
                   </div>
-                </Link>
+                </div>
                 <div className="flex justify-between items-start px-4">
                   <div className="space-y-1">
-                    <Link href={`/project/${item.slug}`}>
-                      <h4 className="text-2xl font-bold text-white group-hover:text-indigo-400 transition-colors italic">
-                        {item.title}
-                      </h4>
-                    </Link>
+                    <h4 className="text-2xl font-bold text-white group-hover:text-indigo-400 transition-colors italic">
+                      {item.title}
+                    </h4>
                     <p className="text-slate-500 font-medium">
                       {item.category}
                     </p>
@@ -461,79 +437,29 @@ const App: React.FC = () => {
 
       {/* Contact Section */}
       <section id="contact" className="py-32 px-6">
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="p-10 md:p-20 bg-white/5 backdrop-blur-3xl rounded-[4rem] relative overflow-hidden border border-white/10 shadow-[0_40px_100px_rgba(0,0,0,0.8)]"
+            className="p-16 md:p-24 bg-white/5 backdrop-blur-3xl rounded-[4rem] text-center space-y-12 relative overflow-hidden border border-white/10 shadow-[0_40px_100px_rgba(0,0,0,0.8)]"
           >
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[150%] h-[150%] bg-indigo-600/10 blur-[120px] rounded-full pointer-events-none" />
 
-            <div className="relative z-10 text-center space-y-6 mb-16">
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-bold uppercase tracking-widest">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-                Available for new projects
-              </div>
-              <h3 className="text-5xl md:text-7xl font-black text-white tracking-tighter leading-none">
+            <div className="space-y-4">
+              <h3 className="text-5xl md:text-7xl font-black text-white relative z-10 tracking-tighter leading-none">
                 ORDER YOUR <br />{" "}
                 <span className="text-indigo-400 italic">PROJECT?</span>
               </h3>
-              <p className="text-slate-400 text-lg max-w-md mx-auto font-light">
+              <p className="text-slate-400 text-lg relative z-10 max-w-md mx-auto font-light">
                 Jangan ragu untuk berdiskusi tentang proyek besar Anda
                 selanjutnya.
               </p>
             </div>
 
-            {/* Info cards */}
-            <div className="relative z-10 grid sm:grid-cols-3 gap-4 mb-12">
-              <button
-                onClick={copyEmail}
-                className="p-6 rounded-3xl bg-white/5 border border-white/10 hover:border-white/20 transition-all text-left group"
-              >
-                <div className="flex items-center justify-between mb-4">
-                  <Mail size={20} className="text-indigo-400" />
-                  {copied ? (
-                    <Check size={16} className="text-emerald-400" />
-                  ) : (
-                    <Copy
-                      size={16}
-                      className="text-slate-600 group-hover:text-slate-300 transition-colors"
-                    />
-                  )}
-                </div>
-                <p className="text-xs text-slate-500 uppercase tracking-widest font-bold mb-1">
-                  Email
-                </p>
-                <p className="text-white font-medium text-sm">
-                  {copied ? "Copied!" : "fargifar2007@gmail.com"}
-                </p>
-              </button>
-
-              <div className="p-6 rounded-3xl bg-white/5 border border-white/10">
-                <MapPin size={20} className="text-purple-400 mb-4" />
-                <p className="text-xs text-slate-500 uppercase tracking-widest font-bold mb-1">
-                  Location
-                </p>
-                <p className="text-white font-medium text-sm">
-                  Banjar, West Java, ID
-                </p>
-              </div>
-
-              <div className="p-6 rounded-3xl bg-white/5 border border-white/10">
-                <Clock size={20} className="text-emerald-400 mb-4" />
-                <p className="text-xs text-slate-500 uppercase tracking-widest font-bold mb-1">
-                  Response Time
-                </p>
-                <p className="text-white font-medium text-sm">
-                  Usually within 24 hours
-                </p>
-              </div>
-            </div>
-
-            <div className="relative z-10 flex flex-col items-center gap-8">
+            <div className="flex flex-col items-center gap-8 relative z-10">
               <a
-                href="fargifar2007@gmail.com"
+                href="mailto:contact@designer.com"
                 className="inline-flex items-center gap-4 px-12 py-6 bg-white text-black rounded-full font-black uppercase tracking-[0.2em] text-sm hover:bg-slate-200 transition-all shadow-[0_0_50px_rgba(255,255,255,0.15)] group"
               >
                 <Mail
@@ -543,22 +469,10 @@ const App: React.FC = () => {
                 Work with me
               </a>
 
-              <div className="flex gap-6 items-center">
-                {socialLinks.map((social) => {
-                  const Icon = SOCIAL_ICONS[social.key];
-                  return (
-                    <a
-                      key={social.key}
-                      href={social.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={social.label}
-                      className="w-11 h-11 rounded-full border border-white/10 bg-white/5 flex items-center justify-center text-slate-400 hover:text-white hover:border-white/30 transition-all"
-                    >
-                      <Icon size={18} />
-                    </a>
-                  );
-                })}
+              <div className="flex gap-10 items-center">
+                {/* <a href="#" className="text-slate-500 hover:text-white transition-all" aria-label="Github"><Github size={24} /></a>
+                <a href="#" className="text-slate-500 hover:text-white transition-all" aria-label="Linkedin"><Linkedin size={24} /></a>
+                <a href="#" className="text-slate-500 hover:text-white transition-all" aria-label="Twitter"><Twitter size={24} /></a> */}
               </div>
             </div>
           </motion.div>
@@ -566,82 +480,32 @@ const App: React.FC = () => {
       </section>
 
       {/* Footer */}
-      <footer className="pt-24 pb-40 md:pb-32 px-6 border-t border-white/5">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-4 gap-12 mb-16">
-            <div className="md:col-span-2 space-y-4">
-              <p className="text-slate-400 font-light leading-relaxed max-w-sm">
-                Frontend developer & digital designer, membangun antarmuka yang
-                elegan, cepat, dan nyaman dipakai — dari Banjar untuk klien di
-                mana saja.
-              </p>
-              <div className="flex gap-3 pt-2">
-                {socialLinks.map((social) => {
-                  const Icon = SOCIAL_ICONS[social.key];
-                  return (
-                    <a
-                      key={social.key}
-                      href={social.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={social.label}
-                      className="w-10 h-10 rounded-full border border-white/10 bg-white/5 flex items-center justify-center text-slate-400 hover:text-white hover:border-white/30 transition-all"
-                    >
-                      <Icon size={16} />
-                    </a>
-                  );
-                })}
-              </div>
-            </div>
-
-            <div className="space-y-4">
-              <p className="text-xs text-slate-500 uppercase tracking-widest font-bold">
-                Navigate
-              </p>
-              <div className="flex flex-col gap-3">
-                {navItems.map((item) => (
-                  <button
-                    key={item.id}
-                    onClick={() => scrollTo(item.id)}
-                    className="text-left text-slate-400 hover:text-indigo-400 transition-colors font-medium"
-                  >
-                    {item.label}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            <div className="space-y-4">
-              <p className="text-xs text-slate-500 uppercase tracking-widest font-bold">
-                Get in touch
-              </p>
-              <div className="flex flex-col gap-3 text-slate-400 font-medium">
-                <a
-                  href="fargifar2007@gmail.com"
-                  className="hover:text-indigo-400 transition-colors"
-                >
-                  fargifar2007@gmail.com
-                </a>
-                <span>Banjar, West Java, ID</span>
-                <button
-                  onClick={() => scrollTo("home")}
-                  className="inline-flex items-center gap-2 text-slate-500 hover:text-white transition-colors mt-2"
-                >
-                  <ArrowUp size={14} /> Back to top
-                </button>
-              </div>
-            </div>
+      <footer className="py-20 px-6 border-t border-white/5">
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
+          <div className="flex items-center gap-3">
+            {/* <div className="w-10 h-10 bg-white rounded-2xl flex items-center justify-center text-black font-black italic text-xl">
+              P
+            </div> */}
+            <span className="font-black text-white tracking-widest text-lg uppercase italic">
+              PORTFOLIO.
+            </span>
           </div>
-
-          <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-slate-600 text-sm font-medium tracking-wide text-center md:text-left">
-              © 2026 DESIGNED BY M GIFAR. ALL RIGHTS RESERVED.
-            </p>
-            <p className="text-slate-700 text-xs font-medium tracking-wide">
-              Built with Next.js & Tailwind CSS
-            </p>
+          <p className="text-slate-600 text-sm font-medium tracking-wide">
+            © 2025 DESIGNED BY M Gifar. ALL RIGHTS RESERVED.
+          </p>
+          <div className="flex gap-8 text-[10px] font-black uppercase tracking-widest text-slate-500">
+            <a href="#" className="hover:text-indigo-400 transition-colors">
+              Tiktok
+            </a>
+            <a href="#" className="hover:text-indigo-400 transition-colors">
+              Linkedin
+            </a>
+            <a href="#" className="hover:text-indigo-400 transition-colors">
+              Instagram
+            </a>
           </div>
         </div>
+        <div className="h-28" />
       </footer>
     </div>
   );
