@@ -69,7 +69,6 @@ const Navbar: React.FC<NavbarProps> = ({
     { id: "skills", icon: <Code2 size={18} />, label: t.skills },
     { id: "github", icon: <GithubIcon size={18} />, label: t.github },
     { id: "portfolio", icon: <Briefcase size={18} />, label: t.portfolio },
-    { id: "contact", icon: <Mail size={18} />, label: t.contact },
   ];
 
   return (
