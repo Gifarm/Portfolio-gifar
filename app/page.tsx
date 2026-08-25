@@ -97,7 +97,7 @@ const translations = {
       "Frontend developer & digital designer, building elegant, fast, and comfortable interfaces — from Banjar for clients anywhere.",
     backToTop: "Back to top",
     basedIn: "Based in Banjar, ID",
-    designingSince: "Designing since 2019",
+    designingSince: "Designing since 2024",
     usuallyWithin: "Usually within 24 hours",
   },
   id: {
@@ -108,7 +108,7 @@ const translations = {
     portfolio: "Portofolio",
     contact: "Kontak",
     openForOpportunities: "Terbuka untuk Peluang Global",
-    designExcellence: "KEUNGGULAN DESAIN.",
+    designExcellence: "KEUNGGULAN.",
     designDesc:
       "Desainer digital ahli yang menciptakan pengalaman imersif melalui",
     darkTheme: "estetika tema gelap",
@@ -152,7 +152,7 @@ const translations = {
       "Frontend developer & desainer digital, membangun antarmuka yang elegan, cepat, dan nyaman dipakai — dari Banjar untuk klien di mana saja.",
     backToTop: "Kembali ke atas",
     basedIn: "Berbasis di Banjar, ID",
-    designingSince: "Mendesain sejak 2019",
+    designingSince: "Mendesain sejak 2024",
     usuallyWithin: "Biasanya dalam 24 jam",
   },
 };
@@ -184,12 +184,19 @@ const GithubIcon = ({
 const socialLinks = [
   {
     key: "instagram" as const,
-    href: "https://instagram.com",
+    href: "https://www.instagram.com/gifarrrrrrr._",
     label: "Instagram",
   },
-  { key: "tiktok" as const, href: "https://tiktok.com", label: "Tiktok" },
-  { key: "linkedin" as const, href: "https://linkedin.com", label: "Linkedin" },
-  { key: "github" as const, href: "https://github.com", label: "Github" },
+  {
+    key: "linkedin" as const,
+    href: "https://www.linkedin.com/in/muhammad-gifar-92241a381/",
+    label: "Linkedin",
+  },
+  {
+    key: "github" as const,
+    href: "https://github.com/Gifarm",
+    label: "Github",
+  },
 ];
 
 const App: React.FC = () => {
@@ -452,7 +459,7 @@ const App: React.FC = () => {
                   </h3>
                 </div>
                 <span className="text-slate-600 text-sm font-mono">
-                  2019—Now
+                  2023-now
                 </span>
               </div>
               <p className="text-slate-400 leading-relaxed mb-8 max-w-xl">
@@ -472,8 +479,6 @@ const App: React.FC = () => {
                   { name: "Tailwind CSS", icon: "tailwind" },
                   { name: "Prisma", icon: "prisma" },
                   { name: "Git", icon: "git" },
-                  { name: "Docker", icon: "docker" },
-                  { name: "Redis", icon: "redis" },
                 ].map((tech) => (
                   <div
                     key={tech.name}
@@ -505,7 +510,7 @@ const App: React.FC = () => {
                   </h3>
                 </div>
                 <span className="text-slate-600 text-sm font-mono">
-                  2019—Now
+                  2023-now
                 </span>
               </div>
               <p className="text-slate-400 leading-relaxed mb-8">
@@ -641,7 +646,7 @@ const App: React.FC = () => {
                 viewport={{ once: true }}
                 className="min-w-full md:min-w-[350px] snap-center group"
               >
-                <Link href={`/project/${item.slug}`} className="block">
+                <Link href="" className="block">
                   {/* Card Container */}
                   <div className="bg-white/5 border border-white/10 rounded-3xl overflow-hidden hover:bg-white/10 transition-all duration-500">
                     {/* Image Section */}
@@ -654,12 +659,12 @@ const App: React.FC = () => {
                       <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-transparent to-transparent opacity-60" />
 
                       {/* View Project Button */}
-                      <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      {/* <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                         <div className="px-6 py-3 rounded-full bg-white text-black font-semibold text-sm flex items-center gap-2 shadow-lg transform scale-90 group-hover:scale-100 transition-transform">
                           Lihat Detail
                           <ArrowUpRight size={16} />
                         </div>
-                      </div>
+                      </div> */}
                     </div>
 
                     {/* Content Section */}
