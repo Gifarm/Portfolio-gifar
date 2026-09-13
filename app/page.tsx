@@ -55,7 +55,7 @@ const translations = {
     portfolio: "Work",
     contact: "Contact",
     openForOpportunities: "Open for Global Opportunities",
-    designExcellence: "EXCELLENCE.",
+    designExcellence: "Portfolio.",
     designDesc:
       "Expert digital designer crafting immersive experiences through",
     darkTheme: "dark-themed aesthetics",
@@ -293,7 +293,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#020617] text-slate-200 font-sans selection:bg-indigo-500/30 selection:text-indigo-200 overflow-x-hidden">
+    <div className="min-h-screen bg-[#f1f1f1] text-slate-200 font-sans selection:bg-indigo-500/30 selection:text-indigo-200 overflow-x-hidden">
       {/* Background Ornaments */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
         <div className="absolute -top-[10%] -left-[10%] w-[50%] h-[50%] rounded-full bg-indigo-900/20 blur-[140px]" />
@@ -317,7 +317,7 @@ const App: React.FC = () => {
             <motion.div
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md text-slate-300 text-xs font-bold tracking-widest uppercase"
+              className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white/5 border border-slate-700/10 backdrop-blur-md text-slate-700 text-xs font-bold tracking-widest uppercase"
             >
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
@@ -332,8 +332,8 @@ const App: React.FC = () => {
               transition={{ delay: 0.2 }}
               className="text-6xl md:text-[7rem] font-black tracking-tighter text-white leading-none"
             >
-              DESIGN <br />
-              <span className="bg-gradient-to-r from-indigo-400 via-white to-purple-400 bg-clip-text text-transparent italic">
+              {/* DESIGN <br /> */}
+              <span className="bg-gradient-to-r from-blue-600 via-slate-300 to-yellow-400 bg-clip-text text-transparent italic">
                 {t.designExcellence}
               </span>
             </motion.h1>
@@ -342,10 +342,10 @@ const App: React.FC = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4 }}
-              className="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed font-light"
+              className="text-lg md:text-xl text-slate-700 max-w-2xl mx-auto leading-relaxed font-light"
             >
               {t.designDesc}
-              <span className="text-white font-medium">
+              <span className="text-blue-400 font-medium">
                 {" "}
                 {t.darkTheme}
               </span>{" "}
@@ -360,7 +360,7 @@ const App: React.FC = () => {
             >
               <button
                 onClick={() => scrollTo("portfolio")}
-                className="group px-10 py-5 bg-white text-black rounded-full font-black text-sm uppercase tracking-widest flex items-center gap-2 hover:bg-slate-200 transition-all shadow-[0_0_30px_rgba(255,255,255,0.1)] hover:-translate-y-1"
+                className="italic group px-10 py-5 bg-white text-blue-300 rounded-full font-black text-sm uppercase tracking-widest flex items-center gap-2 hover:bg-slate-200 transition-all shadow-[0_0_30px_rgba(255,255,255,0.1)] hover:-translate-y-1"
               >
                 {t.project}
                 <ChevronRight

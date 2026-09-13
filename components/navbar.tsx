@@ -76,7 +76,7 @@ const Navbar: React.FC<NavbarProps> = ({
       <motion.div
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        className="bg-slate-900/40 backdrop-blur-2xl border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] rounded-3xl p-2 flex items-center gap-1"
+        className="bg-slate-200 backdrop-blur-2xl border border-white/10 shadow-[0_10px_50px_rgba(0,0,0,0.5)] rounded-3xl p-2 flex items-center gap-1"
       >
         {/* Navigation Items */}
         <div className="flex items-center gap-1">
@@ -86,8 +86,8 @@ const Navbar: React.FC<NavbarProps> = ({
               onClick={() => scrollTo(item.id)}
               className={`relative flex items-center gap-2 px-4 py-3 rounded-2xl transition-all duration-300 group ${
                 activeTab === item.id
-                  ? "text-white"
-                  : "text-slate-500 hover:text-slate-300"
+                  ? "text-blue-500"
+                  : "text-yellow-500 hover:bg-slate-500/10"
               }`}
             >
               {activeTab === item.id && (
@@ -98,7 +98,7 @@ const Navbar: React.FC<NavbarProps> = ({
                 />
               )}
               <span className="relative z-10">{item.icon}</span>
-              <span
+              {/* <span
                 className={`relative z-10 text-xs font-bold uppercase tracking-widest transition-all duration-300 ${
                   activeTab === item.id
                     ? "w-auto opacity-100 ml-1"
@@ -106,7 +106,7 @@ const Navbar: React.FC<NavbarProps> = ({
                 }`}
               >
                 {item.label}
-              </span>
+              </span> */}
             </button>
           ))}
         </div>
@@ -115,7 +115,7 @@ const Navbar: React.FC<NavbarProps> = ({
         <div className="w-px h-8 bg-white/10 mx-2" />
 
         {/* Language Toggle */}
-        <div className="flex items-center bg-slate-800/50 rounded-full p-1">
+        {/* <div className="flex items-center bg-slate-800/50 rounded-full p-1">
           <button
             onClick={() => setLanguage("en")}
             className={`px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 ${
@@ -136,7 +136,7 @@ const Navbar: React.FC<NavbarProps> = ({
           >
             ID
           </button>
-        </div>
+        </div> */}
       </motion.div>
     </nav>
   );
