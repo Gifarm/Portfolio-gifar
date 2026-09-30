@@ -19,10 +19,7 @@ html {
 body {
   background: var(--background);
   color: var(--foreground);
-  /*
-    Bug fix: this previously read `Arial, Helvetica, sans-serif` which
-    silently ignored the Geist font already being loaded via next/font.
-  */
+  /* Bug fix: ensure Geist font is used correctly */
   font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
 }
 
@@ -35,6 +32,7 @@ body {
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
+
 .scrollbar-hide {
   scrollbar-width: none;
   -ms-overflow-style: none;
@@ -44,20 +42,23 @@ body {
 ::-webkit-scrollbar {
   width: 10px;
 }
+
 ::-webkit-scrollbar-track {
   background: #020617;
 }
+
 ::-webkit-scrollbar-thumb {
   background: #1e293b;
   border-radius: 999px;
   border: 2px solid #020617;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: #334155;
 }
 
 /* GitHub Calendar Tooltip Styles */
-/* .react-activity-calendar__tooltip {
+.react-activity-calendar__tooltip {
   background-color: rgba(15, 23, 42, 0.95) !important;
   color: #e2e8f0 !important;
   border: 1px solid rgba(255, 255, 255, 0.1) !important;
@@ -69,8 +70,9 @@ body {
 
 .react-activity-calendar__tooltip-arrow {
   fill: rgba(15, 23, 42, 0.95) !important;
-} */
-/* Pure-CSS marquee for the tech stack strip in Skills — no JS/framer cost */
+}
+
+/* Pure-CSS marquee for the tech stack strip in Skills */
 @keyframes marquee-scroll {
   from {
     transform: translateX(0);
@@ -79,9 +81,11 @@ body {
     transform: translateX(-50%);
   }
 }
+
 .marquee-track {
   animation: marquee-scroll 28s linear infinite;
 }
+
 .marquee-track:hover {
   animation-play-state: paused;
 }
