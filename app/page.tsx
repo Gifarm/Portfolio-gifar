@@ -310,10 +310,17 @@ const App: React.FC = () => {
       {/* Hero Section */}
       <section
         id="home"
-        className="relative min-h-screen flex items-center justify-center pt-20 px-6"
+        className="relative min-h-screen bg-contain bg-center flex items-center justify-center pt-20 px-6"
       >
-        <div className="max-w-5xl w-full">
-          <div className="text-center space-y-10">
+        <img
+          src="/allsectionbg.png"
+          alt="Background"
+          className="absolute inset-0 w-full h-full object-contain z-0"
+          // Gunakan object-contain kalau mau gambar utuh.
+          // Gunakan object-cover kalau mau full layar tapi tetap proporsional (agak tercrop dikit tapi rapi).
+        />
+        <div className="max-w-5xl w-full z-10">
+          <div className="text-center space-y-15 pt-15">
             <motion.div
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -326,23 +333,23 @@ const App: React.FC = () => {
               {t.openForOpportunities}
             </motion.div>
 
-            <motion.h1
+            {/* <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
               className="text-6xl md:text-[7rem] font-black tracking-tighter text-white leading-none"
-            >
-              {/* DESIGN <br /> */}
-              <span className="bg-gradient-to-r from-blue-600 via-slate-300 to-yellow-400 bg-clip-text text-transparent italic">
+            > */}
+            {/* DESIGN <br /> */}
+            {/* <span className="bg-gradient-to-r from-blue-600 via-slate-300 to-yellow-400 bg-clip-text text-transparent italic">
                 {t.designExcellence}
               </span>
-            </motion.h1>
+            </motion.h1> */}
 
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4 }}
-              className="text-lg md:text-xl text-slate-700 max-w-2xl mx-auto leading-relaxed font-light"
+              className="text-lg md:text-xl text-slate-700 max-w-2xl mx-auto leading-relaxed font-light mb-10 mt-70"
             >
               {t.designDesc}
               <span className="text-blue-400 font-medium">
@@ -360,7 +367,7 @@ const App: React.FC = () => {
             >
               <button
                 onClick={() => scrollTo("portfolio")}
-                className="italic group px-10 py-5 bg-white text-blue-300 rounded-full font-black text-sm uppercase tracking-widest flex items-center gap-2 hover:bg-slate-200 transition-all shadow-[0_0_30px_rgba(255,255,255,0.1)] hover:-translate-y-1"
+                className=" group px-10 py-5 border bg-white text-blue-300 rounded-full font-black text-sm uppercase tracking-widest flex items-center gap-2 hover:bg-slate-200 transition-all shadow-[0_0_30px_rgba(255,255,255,0.1)] hover:-translate-y-1"
               >
                 {t.project}
                 <ChevronRight
@@ -370,7 +377,7 @@ const App: React.FC = () => {
               </button>
               <button
                 onClick={() => scrollTo("contact")}
-                className="px-10 py-5 bg-transparent text-white border border-white/20 rounded-full font-black text-sm uppercase tracking-widest hover:bg-white/5 transition-all"
+                className="px-10 py-5 bg-transparent text-blue-300 border border-slate-500/20 rounded-full font-black text-sm uppercase tracking-widest hover:bg-slate-700/5 transition-all"
               >
                 {t.getInTouch}
               </button>
@@ -379,21 +386,25 @@ const App: React.FC = () => {
         </div>
       </section>
       {/* About Section */}
-      <section id="about" className="py-32 px-6">
+      <section
+        id="about"
+        className="relative min-h-screen py-32 px-6 bg-cover bg-center"
+        // style={{ backgroundImage: "url('/bgallsectionremove.png')" }}
+      >
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-20 items-center">
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className="relative aspect-square"
+              className="relative aspect-[7:16]"
             >
               <div className="absolute inset-0 bg-gradient-to-tr from-indigo-500 to-purple-500 rounded-[3rem] blur-[60px] opacity-20" />
               <div className="relative h-full w-full rounded-[3rem] overflow-hidden border border-white/10 bg-slate-900 group">
                 <img
-                  src="/foto.jpeg"
+                  src="/pakealmet.jpeg"
                   alt="Professional Avatar"
-                  className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
+                  className="w-full h-full object-cover grayscale active:grayscale-0 transition-all duration-700 group-active:scale-105"
                 />
                 <div className="absolute bottom-10 left-10 right-10 p-6 bg-black/60 backdrop-blur-xl border border-white/10 rounded-2xl">
                   <p className="text-white font-bold">{t.basedIn}</p>
@@ -411,10 +422,10 @@ const App: React.FC = () => {
               className="space-y-8"
             >
               <div className="space-y-4">
-                <h2 className="text-indigo-400 font-black text-sm tracking-[0.3em] uppercase">
+                <h2 className="text-yellow-400 font-black text-sm tracking-[0.3em] uppercase">
                   {t.theVision}
                 </h2>
-                <h3 className="text-4xl md:text-5xl font-bold text-white leading-tight">
+                <h3 className="text-4xl md:text-5xl font-bold text-gray-700 leading-tight">
                   {t.elevatingBrands}
                 </h3>
               </div>
@@ -439,20 +450,28 @@ const App: React.FC = () => {
           </div>
         </div>
       </section>
-      <section id="skills" className="py-32 px-6">
-        <div className="max-w-6xl mx-auto">
+      <section id="skills" className="relative py-32 px-6 overflow-hidden">
+        {/* Background Image */}
+        <img
+          src="/sectionskills.png"
+          alt="Background"
+          className="absolute inset-0 w-full h-full object-contain z-0 hidden md:block pointer-events-none"
+        />
+
+        {/* Konten Skills */}
+        <div className="max-w-6xl mx-auto relative z-10">
           {/* Main Skills Grid - Asymmetric */}
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-px bg-white/10 mb-20">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-px mb-20">
             {/* Fullstack Development - Large */}
             <motion.div
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              className="md:col-span-7 bg-[#020617] p-8 md:p-12 lg:p-16"
+              className="md:col-span-7 p-8 md:p-12 lg:p-16"
             >
               <div className="flex items-start justify-between mb-6">
                 <div>
-                  <h3 className="text-2xl md:text-3xl font-bold text-white mb-3">
+                  <h3 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-blue-600 via-slate-300 to-yellow-400 bg-clip-text text-transparent mb-3">
                     {language === "id"
                       ? "Fullstack Development"
                       : "Fullstack Development"}
@@ -482,14 +501,10 @@ const App: React.FC = () => {
                 ].map((tech) => (
                   <div
                     key={tech.name}
-                    className="flex items-center gap-2 px-3 py-2 bg-white/5 border border-white/10 rounded-lg hover:bg-white/10 transition-colors"
+                    className="flex items-center gap-2 px-3 py-2 bg-white/20 border border-gray-400/10 rounded-lg hover:bg-white/10 transition-colors"
                   >
-                    <TechIcon
-                      name={tech.icon}
-                      size={16}
-                      className="text-slate-400"
-                    />
-                    <span className="text-xs text-slate-300">{tech.name}</span>
+                    <TechIcon name={tech.icon} size={16} />
+                    <span className="text-xs text-slate-800">{tech.name}</span>
                   </div>
                 ))}
               </div>
@@ -501,11 +516,11 @@ const App: React.FC = () => {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="md:col-span-5 bg-[#020617] p-8 md:p-12"
+              className="md:col-span-5 p-8 md:p-12"
             >
               <div className="flex items-start justify-between mb-6">
                 <div>
-                  <h3 className="text-2xl md:text-3xl font-bold text-white mb-3">
+                  <h3 className="text-2xl md:text-3xl font-bold text-yellow-400 mb-3">
                     {language === "id" ? "UI/UX Design" : "UI/UX Design"}
                   </h3>
                 </div>
