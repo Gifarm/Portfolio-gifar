@@ -558,7 +558,7 @@ const App: React.FC = () => {
         </div>
       </section>
       {/*  GITHUB ACTIVITY SECTION (UPDATED) 🌟 */}
-      <section id="github" className="py-32 px-6">
+      {/* <section id="github" className="py-32 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16 space-y-4">
             <h2 className="text-indigo-400 font-black text-sm tracking-[0.3em] uppercase">
@@ -570,20 +570,17 @@ const App: React.FC = () => {
             <p className="text-slate-400 max-w-2xl mx-auto font-light">
               {t.githubDesc}
             </p>
-          </div>
-
-          <motion.div
+          </div> */}
+      {/* <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="bg-white/5 backdrop-blur-2xl rounded-[2.5rem] border border-white/10 p-6 md:p-10 relative overflow-hidden"
           >
             {/* Decorative glow */}
-            <div className="absolute top-0 right-0 w-96 h-96 bg-indigo-500/10 blur-[100px] rounded-full pointer-events-none" />
-
-            {/* Stats Cards */}
-
-            <div className="flex justify-center">
+      {/* <div className="absolute top-0 right-0 w-96 h-96 bg-indigo-500/10 blur-[100px] rounded-full pointer-events-none" /> */}
+      {/* Stats Cards */}
+      {/* <div className="flex justify-center">
               {isMounted && (
                 <GitHubCalendar
                   username="Gifarm"
@@ -615,9 +612,8 @@ const App: React.FC = () => {
                   }}
                 />
               )}
-            </div>
-
-            <div className="mt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 font-medium">
+            </div> */}
+      {/* <div className="mt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 font-medium">
               <div className="flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
                 {t.autoUpdated}
@@ -637,7 +633,7 @@ const App: React.FC = () => {
             </div>
           </motion.div>
         </div>
-      </section>
+      </section> */}
       {/* Portfolio Section */}
       <section id="portfolio" className="py-32 px-6">
         <div className="max-w-6xl mx-auto">

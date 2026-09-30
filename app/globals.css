@@ -1,11 +1,5 @@
 @import "tailwindcss";
 
-/*
-  This site is designed dark-only (see the hero/portfolio sections), so the
-  theme tokens are fixed instead of following prefers-color-scheme. Previously
-  the light values (#ffffff background) would flash on light-mode systems
-  before anything else kicked in.
-*/
 :root {
   --background: #020617;
   --foreground: #e2e8f0;
@@ -63,7 +57,7 @@ body {
 }
 
 /* GitHub Calendar Tooltip Styles */
-.react-activity-calendar__tooltip {
+/* .react-activity-calendar__tooltip {
   background-color: rgba(15, 23, 42, 0.95) !important;
   color: #e2e8f0 !important;
   border: 1px solid rgba(255, 255, 255, 0.1) !important;
@@ -75,7 +69,7 @@ body {
 
 .react-activity-calendar__tooltip-arrow {
   fill: rgba(15, 23, 42, 0.95) !important;
-}
+} */
 /* Pure-CSS marquee for the tech stack strip in Skills — no JS/framer cost */
 @keyframes marquee-scroll {
   from {
