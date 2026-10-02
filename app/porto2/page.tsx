@@ -171,7 +171,7 @@ export default function Porto() {
   return (
     <div>
       <Navbar
-        asiveTab={activeTab}
+        activeTab={activeTab}
         scrollTo={scrollTo}
         language={language}
         setLanguage={setLanguage}
