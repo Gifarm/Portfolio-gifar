@@ -292,7 +292,7 @@ const App: React.FC = () => {
           // Gunakan object-cover kalau mau full layar tapi tetap proporsional (agak tercrop dikit tapi rapi).
         />
         <div className="max-w-5xl w-full z-10">
-          <div className="text-center space-y-15 pt-15">
+          <div className="text-center">
             <motion.div
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -369,7 +369,7 @@ const App: React.FC = () => {
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className="relative aspect-[7:16]"
+              className="relative aspect-[7/16]"
             >
               <div className="absolute inset-0 bg-gradient-to-tr from-indigo-500 to-purple-500 rounded-[3rem] blur-[60px] opacity-20" />
               <div className="relative h-full w-full rounded-[3rem] overflow-hidden border border-white/10 bg-slate-900 group">
@@ -541,7 +541,7 @@ const App: React.FC = () => {
 
           <div
             ref={scrollContainerRef}
-            className="flex gap-8 overflow-x-auto pb-10 scrollbar-hide snap-x snap-mandatory"
+            className="flex gap-8 overflow-x-auto pb-10 snap-x snap-mandatory"
           >
             {projects.map((item) => (
               <motion.div
