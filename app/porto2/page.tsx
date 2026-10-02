@@ -10,7 +10,6 @@ const translations = {
     home: "Home",
     about: "About",
     skills: "Skills",
-    github: "Activity",
     portfolio: "Work",
     contact: "Contact",
     openForOpportunities: "Open for Global Opportunities",
@@ -37,8 +36,6 @@ const translations = {
     globalDesc: "Ensuring your project performs at peak on any device.",
     consistency: "Consistency",
     devJourney: "Development Journey",
-    githubDesc:
-      "Transparency of the development process over the past year. Commitment to consistent code and automatic updates directly from GitHub.",
     autoUpdated: "Auto-updated from GitHub",
     viewProfile: "View Full Profile",
     portfolioTitle: "Project",
@@ -127,14 +124,7 @@ export default function Porto() {
   useEffect(() => {
     const handleScroll = () => {
       // <-- Ditambahkan "github" ke daftar section
-      const sections = [
-        "home",
-        "about",
-        "skills",
-        "github",
-        "portfolio",
-        "contact",
-      ];
+      const sections = ["home", "about", "skills", "portfolio", "contact"];
       const scrollPos = window.scrollY + 100;
 
       sections.forEach((section) => {
@@ -157,7 +147,6 @@ export default function Porto() {
     { id: "home", icon: <Home size={18} />, label: t.home },
     { id: "about", icon: <User size={18} />, label: t.about },
     { id: "skills", icon: <Code2 size={18} />, label: t.skills },
-    // { id: "github", icon: <GithubIcon size={18} />, label: t.github },
     // { id: "portfolio", icon: <Briefcase size={18} />, label: t.portfolio },
     { id: "contact", icon: <Mail size={18} />, label: t.contact },
   ];

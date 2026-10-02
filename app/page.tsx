@@ -4,8 +4,6 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import "react-github-calendar/tooltips.css";
-import { GitHubCalendar } from "react-github-calendar";
 
 import {
   User,
@@ -51,7 +49,6 @@ const translations = {
     home: "Home",
     about: "About",
     skills: "Skills",
-    github: "Activity",
     portfolio: "Work",
     contact: "Contact",
     openForOpportunities: "Open for Global Opportunities",
@@ -157,30 +154,6 @@ const translations = {
   },
 };
 
-// --- Custom GitHub SVG Icon ---
-const GithubIcon = ({
-  size = 18,
-  className = "",
-}: {
-  size?: number;
-  className?: string;
-}) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width={size}
-    height={size}
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    className={className}
-  >
-    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
-  </svg>
-);
-
 const socialLinks = [
   {
     key: "instagram" as const,
@@ -260,7 +233,6 @@ const App: React.FC = () => {
     { id: "home", icon: <Home size={18} />, label: t.home },
     { id: "about", icon: <User size={18} />, label: t.about },
     { id: "skills", icon: <Code2 size={18} />, label: t.skills },
-    { id: "github", icon: <GithubIcon size={18} />, label: t.github },
     { id: "portfolio", icon: <Briefcase size={18} />, label: t.portfolio },
     { id: "contact", icon: <Mail size={18} />, label: t.contact },
   ];
@@ -557,84 +529,6 @@ const App: React.FC = () => {
           </div>
         </div>
       </section>
-      {/*  GITHUB ACTIVITY SECTION (UPDATED) 🌟 */}
-      {/* <section id="github" className="py-32 px-6">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16 space-y-4">
-            <h2 className="text-indigo-400 font-black text-sm tracking-[0.3em] uppercase">
-              {t.consistency}
-            </h2>
-            <h3 className="text-4xl md:text-5xl font-bold text-white">
-              {t.devJourney}
-            </h3>
-            <p className="text-slate-400 max-w-2xl mx-auto font-light">
-              {t.githubDesc}
-            </p>
-          </div> */}
-      {/* <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="bg-white/5 backdrop-blur-2xl rounded-[2.5rem] border border-white/10 p-6 md:p-10 relative overflow-hidden"
-          >
-            {/* Decorative glow */}
-      {/* <div className="absolute top-0 right-0 w-96 h-96 bg-indigo-500/10 blur-[100px] rounded-full pointer-events-none" /> */}
-      {/* Stats Cards */}
-      {/* <div className="flex justify-center">
-              {isMounted && (
-                <GitHubCalendar
-                  username="Gifarm"
-                  year={new Date().getFullYear()} // <-- TAMBAHKAN BARIS INI
-                  colorScheme="dark"
-                  blockSize={14}
-                  blockRadius={4}
-                  blockMargin={5}
-                  fontSize={14}
-                  showWeekdayLabels={true}
-                  theme={{
-                    dark: [
-                      "rgba(255, 255, 255, 0.06)",
-                      "rgba(131, 173, 73, 0.4)",
-                      "rgba(131, 173, 73, 0.6)",
-                      "rgba(131, 173, 73, 0.8)",
-                      "#83ad49",
-                    ],
-                  }}
-                  labels={{
-                    totalCount: "{{count}} contributions in the last year",
-                    legend: {
-                      less: "Less",
-                      more: "More",
-                    },
-                  }}
-                  style={{
-                    marginBottom: "20px",
-                  }}
-                />
-              )}
-            </div> */}
-      {/* <div className="mt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 font-medium">
-              <div className="flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                {t.autoUpdated}
-              </div>
-              <a
-                href="https://github.com/Gifarm" // GANTI USERNAME DI SINI
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-1 text-indigo-400 hover:text-indigo-300 transition-colors group"
-              >
-                {t.viewProfile}
-                <ArrowUpRight
-                  size={12}
-                  className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
-                />
-              </a>
-            </div>
-          </motion.div>
-        </div>
-      </section> */}
-      {/* Portfolio Section */}
       <section id="portfolio" className="py-32 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row md:items-end justify-center mb-20 gap-8">
