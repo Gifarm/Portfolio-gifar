@@ -8,9 +8,12 @@ import {
   SiFigma,
   SiReact,
   SiGit,
+  SiPrisma,
   SiJavascript,
 } from "react-icons/si";
 import { FaInstagram, FaTiktok, FaLinkedin, FaGithub } from "react-icons/fa6";
+import { FaNode } from "react-icons/fa";
+import { BiLogoPostgresql } from "react-icons/bi";
 import type { IconType } from "react-icons";
 
 // Central map: one place to add a new stack logo, reused everywhere.
@@ -28,6 +31,9 @@ export const TECH_ICONS: Record<
   react: { icon: SiReact, label: "React", color: "#61DAFB" },
   git: { icon: SiGit, label: "Git", color: "#F05032" },
   javascript: { icon: SiJavascript, label: "JavaScript", color: "#F7DF1E" },
+  prisma: { icon: SiPrisma, label: "Prisma", color: "#3A6189" },
+  nodejs: { icon: FaNode, label: "NodeJS", color: "#00bf63" },
+  postgresql: { icon: BiLogoPostgresql, label: "PostgreSQL", color: "#336791" },
 };
 
 export const SOCIAL_ICONS = {

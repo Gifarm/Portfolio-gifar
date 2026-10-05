@@ -369,7 +369,7 @@ const App: React.FC = () => {
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className="relative aspect-[7/16]"
+              className="relative aspect-7/16"
             >
               <div className="absolute inset-0 bg-gradient-to-tr from-indigo-500 to-purple-500 rounded-[3rem] blur-[60px] opacity-20" />
               <div className="relative h-full w-full rounded-[3rem] overflow-hidden border border-white/10 bg-slate-900 group">
@@ -443,7 +443,7 @@ const App: React.FC = () => {
             >
               <div className="flex items-start justify-between mb-6">
                 <div>
-                  <h3 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-blue-600 via-slate-300 to-yellow-400 bg-clip-text text-transparent mb-3">
+                  <h3 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-blue-600 via-slate-500 to-yellow-400 bg-clip-text text-transparent mb-3">
                     {language === "id"
                       ? "Fullstack Development"
                       : "Fullstack Development"}
@@ -533,7 +533,7 @@ const App: React.FC = () => {
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row md:items-end justify-center mb-20 gap-8">
             <div className="space-y-4 text-center md:text-left">
-              <h3 className="text-4xl md:text-5xl font-bold text-white">
+              <h3 className="text-4xl md:text-5xl font-bold text-yellow-300 italic">
                 {t.portfolioTitle}
               </h3>
             </div>
@@ -541,7 +541,7 @@ const App: React.FC = () => {
 
           <div
             ref={scrollContainerRef}
-            className="flex gap-8 overflow-x-auto pb-10 snap-x snap-mandatory"
+            className="flex gap-8 overflow-x-auto [scrollbar-width: none] [&::-webkit-scrollbar]:hidden pb-10 snap-x snap-mandatory"
           >
             {projects.map((item) => (
               <motion.div
