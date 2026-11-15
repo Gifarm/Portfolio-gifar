@@ -49,8 +49,7 @@ const translations = {
     home: "Home",
     about: "About",
     skills: "Skills",
-    portfolio: "Work",
-    contact: "Contact",
+    portfolio: "Portfolio",
     openForOpportunities: "Open for Global Opportunities",
     designExcellence: "Portfolio.",
     designDesc:
@@ -665,14 +664,17 @@ const App: React.FC = () => {
       {/* Footer */}
       <footer className="pt-24 pb-40 md:pb-32 px-6 border-t border-white/5">
         <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-4 gap-12 mb-16">
-            <div className="md:col-span-2 space-y-4">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16 text-center md:text-left">
+            {/* Description & Social Media */}
+            <div className="md:col-span-2 space-y-4 flex flex-col items-center md:items-start">
               <p className="text-slate-400 font-light leading-relaxed max-w-sm">
                 {t.footerDesc}
               </p>
-              <div className="flex gap-3 pt-2">
+
+              <div className="flex justify-center md:justify-start gap-3 pt-2">
                 {socialLinks.map((social) => {
                   const Icon = SOCIAL_ICONS[social.key];
+
                   return (
                     <a
                       key={social.key}
@@ -680,7 +682,15 @@ const App: React.FC = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={social.label}
-                      className="w-10 h-10 rounded-full border border-white/10 bg-white/5 flex items-center justify-center text-slate-400 hover:text-white hover:border-white/30 transition-all"
+                      className={`w-10 h-10 rounded-full border border-slate-300 bg-white/5 flex items-center justify-center text-slate-400 transition-all duration-300 ${
+                        social.key === "instagram"
+                          ? "hover:text-[#E4405F] hover:border-[#E4405F]/50 hover:bg-[#E4405F]/10"
+                          : social.key === "linkedin"
+                            ? "hover:text-[#0A66C2] hover:border-[#0A66C2]/50 hover:bg-[#0A66C2]/10"
+                            : social.key === "github"
+                              ? "hover:text-slate-800 hover:border-slate-900 hover:bg-white/20"
+                              : ""
+                      }`}
                     >
                       <Icon size={16} />
                     </a>
@@ -689,16 +699,18 @@ const App: React.FC = () => {
               </div>
             </div>
 
+            {/* Navigation */}
             <div className="space-y-4">
               <p className="text-xs text-slate-500 uppercase tracking-widest font-bold">
                 {t.navigate}
               </p>
-              <div className="flex flex-col gap-3">
+
+              <div className="flex flex-col items-center md:items-start gap-3">
                 {navItems.map((item) => (
                   <button
                     key={item.id}
                     onClick={() => scrollTo(item.id)}
-                    className="text-left text-slate-400 hover:text-indigo-400 transition-colors font-medium"
+                    className="text-slate-400 hover:text-indigo-400 transition-colors font-medium"
                   >
                     {item.label}
                   </button>
@@ -706,21 +718,25 @@ const App: React.FC = () => {
               </div>
             </div>
 
+            {/* Contact */}
             <div className="space-y-4">
               <p className="text-xs text-slate-500 uppercase tracking-widest font-bold">
                 Get in touch
               </p>
-              <div className="flex flex-col gap-3 text-slate-400 font-medium">
+
+              <div className="flex flex-col items-center md:items-start gap-3 text-slate-400 font-medium">
                 <a
                   href="mailto:fargifar2007@gmail.com"
                   className="hover:text-indigo-400 transition-colors"
                 >
                   fargifar2007@gmail.com
                 </a>
+
                 <span>Banjar, West Java, ID</span>
+
                 <button
                   onClick={() => scrollTo("home")}
-                  className="inline-flex items-center gap-2 text-slate-500 hover:text-white transition-colors mt-2"
+                  className="inline-flex items-center gap-2 text-slate-500 hover:text-indigo-400 transition-colors mt-2"
                 >
                   <ArrowUp size={14} /> {t.backToTop}
                 </button>
@@ -728,8 +744,9 @@ const App: React.FC = () => {
             </div>
           </div>
 
-          <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-center items-center gap-4">
-            <p className="text-slate-600 text-sm font-medium tracking-wide text-center md:text-left">
+          {/* Copyright */}
+          <div className="pt-8 border-t border-white/5 flex flex-col justify-center items-center gap-4 text-center">
+            <p className="text-slate-600 text-sm font-medium tracking-wide">
               © 2026 DESIGNED BY M GIFAR. ALL RIGHTS RESERVED.
             </p>
           </div>
