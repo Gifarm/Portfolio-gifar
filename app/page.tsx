@@ -369,16 +369,18 @@ const App: React.FC = () => {
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className="relative aspect-7/16"
+              className="relative w-full max-w-md mx-auto aspect-[4/5] md:aspect-[4/5]"
             >
               <div className="absolute inset-0 bg-gradient-to-tr from-indigo-500 to-purple-500 rounded-[3rem] blur-[60px] opacity-20" />
+
               <div className="relative h-full w-full rounded-[3rem] overflow-hidden border border-white/10 bg-slate-900 group">
                 <img
                   src="/pakealmet.jpeg"
                   alt="Professional Avatar"
-                  className="w-full h-full object-cover grayscale active:grayscale-0 transition-all duration-700 group-active:scale-105"
+                  className="w-full h-full object-cover object-center grayscale hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
                 />
-                <div className="absolute bottom-10 left-10 right-10 p-6 bg-black/60 backdrop-blur-xl border border-white/10 rounded-2xl">
+
+                <div className="absolute bottom-6 left-6 right-6 p-5 bg-black/60 backdrop-blur-xl border border-white/10 rounded-2xl">
                   <p className="text-white font-bold">{t.basedIn}</p>
                   <p className="text-slate-400 text-sm italic">
                     {t.designingSince}
@@ -406,13 +408,17 @@ const App: React.FC = () => {
               </p>
               <div className="grid grid-cols-2 gap-10 pt-4">
                 <div className="space-y-1">
-                  <h4 className="text-3xl font-black text-white italic">10+</h4>
+                  <h4 className="text-3xl font-black text-blue-400 italic">
+                    10+
+                  </h4>
                   <p className="text-xs text-slate-500 uppercase tracking-widest font-bold">
                     {t.projects}
                   </p>
                 </div>
                 <div className="space-y-1">
-                  <h4 className="text-3xl font-black text-white italic">90%</h4>
+                  <h4 className="text-3xl font-black text-blue-400 italic">
+                    90%
+                  </h4>
                   <p className="text-xs text-slate-500 uppercase tracking-widest font-bold">
                     {t.successRate}
                   </p>
