@@ -321,7 +321,7 @@ const App: React.FC = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4 }}
-              className="text-lg md:text-xl text-slate-700 max-w-2xl mx-auto leading-relaxed font-light mb-10 mt-70"
+              className="text-lg md:text-xl text-slate-700 max-w-2xl mx-auto leading-relaxed font-light mb-10 mt-100"
             >
               {t.designDesc}
               <span className="text-blue-400 font-medium">
@@ -492,7 +492,7 @@ const App: React.FC = () => {
             >
               <div className="flex items-start justify-between mb-6">
                 <div>
-                  <h3 className="text-2xl md:text-3xl font-bold text-yellow-400 mb-3">
+                  <h3 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-blue-600 via-slate-500 to-yellow-400 bg-clip-text text-transparent mb-3">
                     {language === "id" ? "UI/UX Design" : "UI/UX Design"}
                   </h3>
                 </div>
@@ -500,28 +500,27 @@ const App: React.FC = () => {
                   2023-now
                 </span>
               </div>
+
               <p className="text-slate-400 leading-relaxed mb-8">
                 {language === "id"
-                  ? "Desain yang berpusat pada pengguna. Dari wireframe hingga high-fidelity prototype dengan fokus pada dark-themed aesthetics."
-                  : "User-centered design. From wireframes to high-fidelity prototypes with focus on dark-themed aesthetics."}
+                  ? "Merancang pengalaman digital yang intuitif dan berpusat pada pengguna. Mulai dari wireframe, user flow, hingga high-fidelity prototype dengan memperhatikan konsistensi visual dan usability."
+                  : "Designing intuitive, user-centered digital experiences. From wireframes and user flows to high-fidelity prototypes, focusing on visual consistency and usability."}
               </p>
+
               <div className="flex flex-wrap gap-3">
                 {[
                   { name: "Figma", icon: "figma" },
-                  { name: "Prototyping", icon: "figma" },
-                  { name: "Design System", icon: "figma" },
-                  { name: "User Research", icon: "figma" },
+                  { name: "OBS Studio", icon: "obs" },
+                  { name: "Stitch", icon: "gemini" },
+                  { name: "Framer", icon: "framer" },
+                  { name: "Canva", icon: "canva" },
                 ].map((tech) => (
                   <div
                     key={tech.name}
-                    className="flex items-center gap-2 px-3 py-2 bg-white/5 border border-white/10 rounded-lg hover:bg-white/10 transition-colors"
+                    className="flex items-center gap-2 px-3 py-2 bg-white/20 border border-gray-400/10 rounded-lg hover:bg-white/10 transition-colors"
                   >
-                    <TechIcon
-                      name={tech.icon}
-                      size={16}
-                      className="text-slate-400"
-                    />
-                    <span className="text-xs text-slate-300">{tech.name}</span>
+                    <TechIcon name={tech.icon} size={16} />
+                    <span className="text-xs text-slate-800">{tech.name}</span>
                   </div>
                 ))}
               </div>
@@ -533,7 +532,7 @@ const App: React.FC = () => {
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row md:items-end justify-center mb-20 gap-8">
             <div className="space-y-4 text-center md:text-left">
-              <h3 className="text-4xl md:text-5xl font-bold text-yellow-300 italic">
+              <h3 className="text-4xl md:text-5xl font-bold text-yellow-300">
                 {t.portfolioTitle}
               </h3>
             </div>
@@ -549,7 +548,7 @@ const App: React.FC = () => {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="min-w-full md:min-w-[350px] snap-center group"
+                className="min-w-full md:min-w-[350px] snap-center group border rounded-3xl"
               >
                 <Link href="" className="block">
                   {/* Card Container */}
@@ -576,7 +575,7 @@ const App: React.FC = () => {
                     <div className="p-8">
                       {/* Title & Category */}
                       <div className="mb-4">
-                        <h4 className="text-2xl font-bold text-white mb-2 group-hover:text-indigo-400 transition-colors">
+                        <h4 className="text-2xl font-bold text-blue-400 mb-2 group-hover:text-yellow-400 transition-colors">
                           {item.title}
                         </h4>
                         {/* <p className="text-slate-400 text-sm">
@@ -594,14 +593,14 @@ const App: React.FC = () => {
                         {item.stack.map((tech) => (
                           <div
                             key={tech}
-                            className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 transition-colors"
+                            className="flex items-center gap-2 px-3 py-1.5 bg-white/20 border border-gray-400/10 rounded-lg hover:bg-white/10 transition-colors"
                           >
                             <TechIcon
                               name={tech}
                               size={14}
                               className="text-slate-400"
                             />
-                            <span className="text-xs text-slate-300 font-medium capitalize">
+                            <span className="text-xs text-slate-800 capitalize">
                               {tech === "nextjs"
                                 ? "Next.js"
                                 : tech === "typescript"

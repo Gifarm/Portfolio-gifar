@@ -10,7 +10,11 @@ import {
   SiGit,
   SiPrisma,
   SiJavascript,
+  SiFramer,
+  SiObsstudio,
+  SiGooglegemini,
 } from "react-icons/si";
+
 import { FaInstagram, FaTiktok, FaLinkedin, FaGithub } from "react-icons/fa6";
 import { FaNode } from "react-icons/fa";
 import { BiLogoPostgresql } from "react-icons/bi";
@@ -34,6 +38,18 @@ export const TECH_ICONS: Record<
   prisma: { icon: SiPrisma, label: "Prisma", color: "#3A6189" },
   nodejs: { icon: FaNode, label: "NodeJS", color: "#00bf63" },
   postgresql: { icon: BiLogoPostgresql, label: "PostgreSQL", color: "#336791" },
+  framer: { icon: SiFramer, label: "Framer", color: "#0055FF" },
+  obs: {
+    icon: SiObsstudio,
+    label: "OBS Studio",
+    color: "#302E2C",
+  },
+
+  gemini: {
+    icon: SiGooglegemini,
+    label: "Google Gemini",
+    color: "#8E75FF",
+  },
 };
 
 export const SOCIAL_ICONS = {
@@ -54,6 +70,24 @@ export function TechIcon({
   showLabel?: boolean;
   className?: string;
 }) {
+  if (name === "canva") {
+    return (
+      <span className={`inline-flex items-center gap-2 ${className}`}>
+        <img
+          src="/icons/canva.jpeg"
+          alt="Canva"
+          width={size}
+          height={size}
+          className="object-contain"
+        />
+        {showLabel && (
+          <span className="text-xs font-bold uppercase tracking-widest text-slate-400">
+            Canva
+          </span>
+        )}
+      </span>
+    );
+  }
   const entry = TECH_ICONS[name];
   if (!entry) return null;
   const Icon = entry.icon;
